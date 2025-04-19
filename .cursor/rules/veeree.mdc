@@ -1,0 +1,16 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+This project is to built an web app that hosts a suite of tools that helps youtube and social media content creation easier. We will continuously buld, improve, optimize, and create new tools constantly.
+
+
+First, we  want to create a basic MVP that is usefull for conssumers nnd creaters.
+
+Here is the homepage MVP:
+
+- Youtube video TimeStamps with short explanation/summary of that timestamped section
+- Video Summariization, enter a youtube URL, we output a .txt file with a summary of the video
+- BlogAnalyzer, enter the summary, link, of a blog or video and we scrape images based off the related content
+- Video Translation, enter the url of a youtube video, we will output a translation mp3
