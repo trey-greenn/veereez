@@ -74,18 +74,18 @@ const searchImages = async () => {
 // ... existing code ...
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+    <div className="w-full max-w-4xl mx-auto p-6 mt-8 bg-gray-900 text-white rounded-lg shadow-lg">
       <h1 className="text-3xl font-bold mb-6">Blog Image Finder</h1>
       
       <div className="mb-6">
-        <label htmlFor="summary" className="block text-sm font-medium text-gray-700 mb-2">
+        <label htmlFor="summary" className="block text-sm font-medium mb-2">
           Enter your article summary:
         </label>
         <textarea
           id="summary"
           value={summary}
           onChange={(e) => setSummary(e.target.value)}
-          className="w-full h-32 p-4 border border-gray-300 text-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          className="w-full p-3 border border-gray-700 bg-gray-800 text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           placeholder="Paste your article summary here..."
         />
       </div>
@@ -93,13 +93,18 @@ const searchImages = async () => {
       <button
         onClick={searchImages}
         disabled={isLoading}
-        className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
+        className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
       >
-        {isLoading ? 'Searching...' : 'Find Images'}
+        {isLoading ? (
+          <span className="flex items-center justify-center">
+            <span className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></span>
+            Searching...
+          </span>
+        ) : 'Find Images'}
       </button>
 
       {error && (
-        <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-lg">
+        <div className="mt-4 p-4 bg-red-900 text-red-100 rounded-lg">
           {error}
         </div>
       )}
@@ -109,24 +114,33 @@ const searchImages = async () => {
           <h2 className="text-2xl font-semibold mb-4">Found Images</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {images.map((image) => (
-              <div key={image.id} className="border rounded-lg overflow-hidden">
+              <div key={image.id} className="border border-gray-700 bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-700 transition-colors">
                 <img
                   src={image.urls.thumb}
-                  alt={image.alt_description}
+                  alt={image.alt_description || "Blog image"}
                   className="w-full h-48 object-cover"
+                  loading="lazy"
                 />
                 <div className="p-4">
                   <a
                     href={image.urls.regular}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-500 hover:text-blue-700 text-sm break-all"
+                    className="text-blue-400 hover:text-blue-300 text-sm hover:underline"
                   >
-                    {image.urls.regular}
+                    View Full Image
                   </a>
                 </div>
               </div>
             ))}
+          </div>
+          
+          <div className="mt-8 p-4 bg-blue-900/30 border border-blue-800 rounded-lg">
+            <h3 className="text-lg font-medium mb-2">About this feature:</h3>
+            <p className="text-gray-300">
+              This tool analyzes your article or blog post summary to find relevant images that match the content.
+              The algorithm extracts key topics from your summary and searches for high-quality images that complement your writing.
+            </p>
           </div>
         </div>
       )}
