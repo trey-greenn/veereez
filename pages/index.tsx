@@ -1,183 +1,254 @@
 import { Inter } from "next/font/google";
-import YoutubeTimestampSummary from '../components/YoutubeTimestampSummary';
-import BlogAnalyzer from '../components/BlogAnalyzer';
+import Layout from '../components/Layout';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main className={`min-h-screen flex flex-col items-center justify-between ${inter.className} bg-black py-8`}>
-      {/* Hero Section */}
-      <section className="w-full max-w-5xl mx-auto px-6 py-16 text-center">
-        <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
-          <span className="text-blue-500">VERECCE</span>
-        </h1>
-        <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-          Empowering content creators with AI-powered tools to streamline your workflow 
-          and amplify your creative potential.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <a 
-            href="#tools" 
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-          >
-            Explore Our Tools
-          </a>
-          <a 
-            href="#about" 
-            className="bg-transparent text-blue-400 border border-blue-500 px-6 py-3 rounded-lg hover:bg-blue-900/20 transition-colors font-medium"
-          >
-            Learn More
-          </a>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="w-full max-w-5xl mx-auto px-6 py-16 text-white">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl font-bold mb-6 text-blue-400">Who We Are</h2>
-            <p className="text-gray-300 mb-4">
-              VERECCE is a platform dedicated to helping YouTube creators and social media professionals 
-              create better content with less effort.
-            </p>
-            <p className="text-gray-300 mb-4">
-              Our suite of AI-powered tools handles the time-consuming aspects of content creation, 
-              allowing you to focus on what matters most—your creative vision.
-            </p>
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-700">
-                <h3 className="font-medium text-lg mb-2">Time-Saving</h3>
-                <p className="text-gray-400 text-sm">Reduce hours of manual work to minutes</p>
-              </div>
-              <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-700">
-                <h3 className="font-medium text-lg mb-2">AI-Powered</h3>
-                <p className="text-gray-400 text-sm">Leveraging cutting-edge AI for better results</p>
-              </div>
-              <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-700">
-                <h3 className="font-medium text-lg mb-2">For Creators</h3>
-                <p className="text-gray-400 text-sm">Built by creators, for creators</p>
-              </div>
-              <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-700">
-                <h3 className="font-medium text-lg mb-2">Continuous Growth</h3>
-                <p className="text-gray-400 text-sm">New tools and features added regularly</p>
-              </div>
-            </div>
+    <Layout>
+      <div className={`${inter.className}`}>
+        {/* Hero Section */}
+        <section className="w-full max-w-6xl mx-auto px-6 py-16 text-center">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">
+              VERECCE
+            </span>
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+            AI-powered tools to streamline your content creation workflow and amplify your creative potential.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link 
+              href="/tools/thumbnail"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg hover:opacity-90 transition-opacity font-medium text-lg"
+            >
+              Get Started
+            </Link>
+            <a 
+              href="#features" 
+              className="bg-transparent text-blue-400 border border-blue-500 px-8 py-4 rounded-lg hover:bg-blue-900/20 transition-colors font-medium text-lg"
+            >
+              Explore Tools
+            </a>
           </div>
-          <div className="relative">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur opacity-75"></div>
-            <div className="relative bg-gray-900 p-6 rounded-lg border border-gray-800">
-              <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
-              <p className="text-gray-300 mb-4">
-                We believe that everyone deserves access to powerful content creation tools, regardless of budget or technical expertise.
-              </p>
-              <p className="text-gray-300">
-                VERECCE is committed to democratizing content creation by providing accessible, 
-                affordable, and easy-to-use tools that deliver professional results.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Tools Section */}
-      <section id="tools" className="w-full max-w-5xl mx-auto px-6 py-16 text-white">
-        <h2 className="text-4xl font-bold mb-8 text-center">Our Tools</h2>
-        <p className="text-xl text-gray-300 text-center mb-12 max-w-3xl mx-auto">
-          A growing collection of specialized tools designed to transform your content creation process.
-        </p>
-
-        <div className="grid grid-cols-1 gap-16 mb-16">
-          {/* YouTube Timestamp Generator */}
-          <div>
-            <section aria-labelledby="youtube-tool-title" className="bg-gray-800/40 p-6 rounded-lg border border-gray-700 hover:border-blue-500 transition-colors mb-8">
-              <h3 id="youtube-tool-title" className="text-2xl font-bold mb-4 text-blue-400">
-                YouTube Timestamp Generator
-              </h3>
-              <p className="text-gray-300 mb-6">
-                Automatically generate useful timestamps with descriptions for any YouTube video, 
-                making your content more accessible and user-friendly.
+        {/* Features Section */}
+        <section id="features" className="w-full max-w-6xl mx-auto px-6 py-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12">
+            Powerful Tools for Content Creators
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* YouTube Tools */}
+            <div className="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-blue-500 transition-colors">
+              <div className="flex items-center mb-4">
+                <div className="bg-red-600/20 p-3 rounded-lg mr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white">YouTube Tools</h3>
+              </div>
+              <p className="text-gray-400 mb-4">
+                Enhance your YouTube content with AI-powered tools for thumbnails, timestamps, translations, and more.
               </p>
-              <button 
-                aria-label="Try the YouTube Timestamp Generator Tool" 
+              <ul className="space-y-2 mb-6">
+                <li className="flex items-center text-gray-300">
+                  <svg className="h-4 w-4 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Auto Thumbnail Generator
+                </li>
+                <li className="flex items-center text-gray-300">
+                  <svg className="h-4 w-4 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Video Summarization
+                </li>
+                <li className="flex items-center text-gray-300">
+                  <svg className="h-4 w-4 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  TimeStamps Generator
+                </li>
+                <li className="flex items-center text-gray-300">
+                  <svg className="h-4 w-4 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Video Translation
+                </li>
+              </ul>
+              <Link 
+                href="/tools/thumbnail"
                 className="text-blue-400 hover:text-blue-300 inline-flex items-center"
-                onClick={() => document.getElementById('youtube-tool-component')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Try the YouTube Timestamp Tool
+                Try YouTube Tools
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
-              </button>
-            
-            
-            <div id="youtube-tool-component" className="mt-6">
-              <YoutubeTimestampSummary />
+              </Link>
             </div>
-            </section>
-          </div>
-
-          {/* Blog Image Finder */}
-          <div>
-            <section aria-labelledby="blog-tool-title" className="bg-gray-800/40 p-6 rounded-lg border border-gray-700 hover:border-blue-500 transition-colors mb-8">
-              <h3 id="blog-tool-title" className="text-2xl font-bold mb-4 text-blue-400">
-                Blog Image Finder
-              </h3>
-              <p className="text-gray-300 mb-6">
-                Find the perfect images for your blog posts or articles by analyzing your content 
-                and suggesting relevant visuals that enhance your message.
+            
+            {/* Content Generation */}
+            <div className="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-blue-500 transition-colors">
+              <div className="flex items-center mb-4">
+                <div className="bg-purple-600/20 p-3 rounded-lg mr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white">Content Generation</h3>
+              </div>
+              <p className="text-gray-400 mb-4">
+                Create stunning visuals and content with AI-powered image generation and automation tools.
               </p>
-              <button 
-                aria-label="Try the Blog Image Finder Tool" 
+              <ul className="space-y-2 mb-6">
+                <li className="flex items-center text-gray-300">
+                  <svg className="h-4 w-4 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  AI Image Generation
+                </li>
+                <li className="flex items-center text-gray-300">
+                  <svg className="h-4 w-4 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  B-Roll/Image Automation
+                </li>
+                <li className="flex items-center text-gray-300">
+                  <svg className="h-4 w-4 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Blog Image Finder
+                </li>
+              </ul>
+              <Link 
+                href="/tools/image-generation"
                 className="text-blue-400 hover:text-blue-300 inline-flex items-center"
-                onClick={() => document.getElementById('blog-tool-component')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Try the Blog Image Finder Tool
+                Try Content Tools
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
-              </button>
-            
-            <div id="blog-tool-component" className="mt-6">
-              <BlogAnalyzer />
+              </Link>
             </div>
-            </section>
+            
+            {/* Social Media */}
+            <div className="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-blue-500 transition-colors">
+              <div className="flex items-center mb-4">
+                <div className="bg-green-600/20 p-3 rounded-lg mr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white">Social Media</h3>
+              </div>
+              <p className="text-gray-400 mb-4">
+                Streamline your social media workflow with scheduling and automation tools.
+              </p>
+              <ul className="space-y-2 mb-6">
+                <li className="flex items-center text-gray-300">
+                  <svg className="h-4 w-4 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Upload Scheduling
+                </li>
+                <li className="flex items-center text-gray-300">
+                  <svg className="h-4 w-4 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Content Calendar
+                </li>
+                <li className="flex items-center text-gray-300">
+                  <svg className="h-4 w-4 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Analytics Dashboard
+                </li>
+              </ul>
+              <Link 
+                href="/tools/scheduling"
+                className="text-blue-400 hover:text-blue-300 inline-flex items-center"
+              >
+                Try Social Tools
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </Link>
+            </div>
           </div>
+        </section>
 
-          {/* Video Summarization (Coming Soon) */}
-          <section aria-labelledby="video-summarization-title" className="bg-gray-800/40 p-6 rounded-lg border border-gray-700 hover:border-blue-500 transition-colors">
-            <h3 id="video-summarization-title" className="text-2xl font-bold mb-4 text-blue-400">
-              Video Summarization
-            </h3>
-            <p className="text-gray-300 mb-6">
-              Convert lengthy videos into concise text summaries, making it easier to quickly understand 
-              key points or decide if a video is worth watching in full.
+        {/* How It Works Section */}
+        <section className="w-full max-w-6xl mx-auto px-6 py-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12">
+            How VERECCE Works
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="bg-blue-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-blue-400">1</span>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Choose Your Tool</h3>
+              <p className="text-gray-400">
+                Select from our suite of AI-powered tools designed for content creators.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-blue-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-blue-400">2</span>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Input Your Content</h3>
+              <p className="text-gray-400">
+                Provide the necessary information for the AI to generate your content.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-blue-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-blue-400">3</span>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Get Your Results</h3>
+              <p className="text-gray-400">
+                Receive high-quality, AI-generated content ready to use in your projects.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="w-full max-w-6xl mx-auto px-6 py-16 text-center">
+          <div className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-2xl p-8 md:p-12 border border-blue-800/50">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Ready to Transform Your Content Creation?
+            </h2>
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              Join thousands of content creators who are saving time and improving their content with VERECCE.
             </p>
-            <p className="text-sm text-gray-500">Coming soon</p>
-          </section>
+            <Link 
+              href="/tools/thumbnail"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg hover:opacity-90 transition-opacity font-medium text-lg inline-block"
+            >
+              Get Started Now
+            </Link>
+          </div>
+        </section>
 
-          {/* Video Translation (Coming Soon) */}
-          <section aria-labelledby="video-translation-title" className="bg-gray-800/40 p-6 rounded-lg border border-gray-700 hover:border-blue-500 transition-colors">
-            <h3 id="video-translation-title" className="text-2xl font-bold mb-4 text-blue-400">
-              Video Translation
-            </h3>
-            <p className="text-gray-300 mb-6">
-              Translate YouTube videos into different languages with our audio translation tool,
-              helping you reach global audiences with your content.
-            </p>
-            <p className="text-sm text-gray-500">Coming soon</p>
-          </section>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="w-full max-w-5xl mx-auto px-6 py-8 text-center border-t border-gray-800">
-        <p className="text-gray-500 text-sm">
-          © {new Date().getFullYear()} VERECCE. All rights reserved.
-        </p>
-        <p className="text-gray-600 text-xs mt-2">
-          Empowering content creators with AI-powered tools.
-        </p>
-      </footer>
-    </main>
+        {/* Footer */}
+        <footer className="w-full max-w-6xl mx-auto px-6 py-8 text-center border-t border-gray-800">
+          <p className="text-gray-500 text-sm">
+            © {new Date().getFullYear()} VERECCE. All rights reserved.
+          </p>
+          <p className="text-gray-600 text-xs mt-2">
+            Empowering content creators with AI-powered tools.
+          </p>
+        </footer>
+      </div>
+    </Layout>
   );
 }
