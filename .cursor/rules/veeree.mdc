@@ -16,3 +16,6 @@ Here is the homepage MVP:
 - Video Summariization, enter a youtube URL, we output a .txt file with a summary of the video
 - BlogAnalyzer, enter the summary, link, of a blog or video and we scrape images based off the related content
 - Video Translation, enter the url of a youtube video, we will output a translation mp3
+- Translation, we will use a LLM model to translate youtube vidos and allow user to download and watch them. Or upload and translate it.
+- Ai Video Generation will use a mix of ai image generation, b-roll and ai video genation. To create simple videos
+- Social Media Scheduling tool that will allow users to schedule uploads to all social medias.

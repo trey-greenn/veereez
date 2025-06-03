@@ -16,27 +16,25 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       id: 'youtube',
       name: 'YouTube',
       tools: [
-        { id: 'thumbnail', name: 'Auto Thumbnail Generator', path: '/tools/thumbnail' },
-        { id: 'video-generation', name: 'Auto Video Generation', path: '/tools/video-generation' },
-        { id: 'translation', name: 'Translation', path: '/tools/translation' },
-        { id: 'cc', name: 'Closed Captions', path: '/tools/cc' },
-        { id: 'timestamps', name: 'TimeStamps', path: '/tools/timestamps' },
-        { id: 'summarization', name: 'Summarization', path: '/tools/summarization' },
+        { id: 'thumbnail', name: 'Auto Thumbnail Generator', path: '/ai-image-generation' },
+        { id: 'video-generation', name: 'Auto Video Generation', path: '/video-generation' },
+        { id: 'translation', name: 'Translation', path: '/translation' },
+        { id: 'timestamps', name: 'TimeStamps', path: '/timestamps' },
+        { id: 'summarization', name: 'Summarization', path: '/summarization' },
       ],
     },
     {
       id: 'content',
       name: 'Content Generation',
       tools: [
-        { id: 'image-generation', name: 'AI Image Generation', path: '/tools/image-generation' },
-        { id: 'b-roll', name: 'B-Roll/Image Automation', path: '/tools/b-roll' },
+        { id: 'b-roll', name: 'B-Roll/Image Automation', path: '/blog-analyzer' },
       ],
     },
     {
       id: 'social',
       name: 'Social Media',
       tools: [
-        { id: 'scheduling', name: 'Upload Scheduling', path: '/tools/scheduling' },
+        { id: 'scheduling', name: 'Upload Scheduling', path: '/scheduling' },
       ],
     },
   ];
